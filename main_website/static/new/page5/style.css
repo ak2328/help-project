@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.page_custom {
+  margin: 0;
+  padding: 0;
+  background-image: url("bg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+}
+
+.btn {
+  outline: none;
+  font-size: 2vh;
+  outline: none;
+  position: fixed;
+  cursor: pointer;
+  width: 12vw;
+  height: 9.8vh;
+  right: 8%;
+  border-right: blue solid 0.85vh;
+  border-left: blue solid 0.85vh;
+  border-radius: 2.1vh;
+}
+
+.btn:hover {
+  background: blue;
+  color: white;
+  border-right: white solid 0.85vh;
+  border-left: white solid 0.85vh;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  outline: none;
+}
+
+.btn1 {
+  top: 35.1%;
+}
+
+.btn2 {
+  top: 49.4%;
+}
+
+.btn3 {
+  top: 63.6%;
+}
+
+.main {
+  outline: none;
+  font-size: 1vw;
+  outline: none;
+  position: fixed;
+  cursor: pointer;
+  width: 20vw;
+  height: 9.8vh;
+  background: white;
+  border-right: blue solid 0.85vh;
+  border-left: blue solid 0.85vh;
+  border-radius: 2.1vh;
+  top: 44%;
+  left: 39%;
+}
+
+.main:hover {
+  background: blue;
+  color: white;
+  border-right: black solid 0.85vh;
+  border-left: black solid 0.85vh;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  outline: none;
+}
+
+.navbar {
+  width: 100%;
+  height: 6.85%;
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  bottom: 0;
+  position: fixed;
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.8vw;
+  text-align: center;
+  z-index: 100;
+}
+
+.navbar li {
+  list-style: none;
+}
+
+.navbar a {
+  color: black;
+  outline: none;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color: #2F5EBC;
+}
+/*# sourceMappingURL=style.css.map */

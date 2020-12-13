@@ -1,0 +1,334 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.page {
+  background-image: url("bg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.page .bg {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.page .gbtn {
+  position: absolute;
+  background: #5a5552;
+  outline: none;
+  cursor: pointer;
+  width: 5.6vw;
+  padding-top: 0.5vw;
+  padding-bottom: 0.5vw;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  border-radius: 0.5vw;
+  border: none;
+  font-size: 0.7vw;
+  color: whitesmoke;
+  margin-bottom: 5.2vw;
+  -webkit-box-shadow: 0px 0.26vw 0.31vw rgba(0, 0, 0, 0.185);
+          box-shadow: 0px 0.26vw 0.31vw rgba(0, 0, 0, 0.185);
+  margin: 0.91vw;
+}
+
+.page .gbtn:hover {
+  color: rgba(73, 245, 96, 0.527);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.pic-wrapper {
+  position: fixed;
+  top: 17%;
+  left: 41%;
+  width: 20vw;
+  height: 23vh;
+  overflow: hidden;
+  background: #000;
+  border: 0.26vw black solid;
+  border-radius: 4%;
+}
+
+figure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-animation: slideShow 24s linear infinite 0s;
+          animation: slideShow 24s linear infinite 0s;
+}
+
+.btn1 {
+  top: 51%;
+  left: 20%;
+}
+
+.btn2 {
+  top: 58%;
+  left: 20%;
+}
+
+.btn3 {
+  top: 65%;
+  left: 20%;
+}
+
+.btn4 {
+  top: 72%;
+  left: 20%;
+}
+
+.pic-1 {
+  opacity: 1;
+}
+
+.pic-2 {
+  -webkit-animation-delay: 6s;
+          animation-delay: 6s;
+}
+
+.pic-3 {
+  -webkit-animation-delay: 12s;
+          animation-delay: 12s;
+}
+
+.pic-4 {
+  -webkit-animation-delay: 18s;
+          animation-delay: 18s;
+}
+
+@-webkit-keyframes slideShow {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -ms-transform: scale(1);
+  }
+  5% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+    -webkit-transform: scale(1.12);
+            transform: scale(1.12);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes slideShow {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -ms-transform: scale(1);
+  }
+  5% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+    -webkit-transform: scale(1.12);
+            transform: scale(1.12);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.event_btn {
+  position: fixed;
+  width: 8%;
+  text-align: center;
+  top: 15%;
+  left: 8.5%;
+  background: White;
+  padding: 1vw;
+  color: #000;
+  font-size: 01vw;
+  border-radius: 1vw;
+  border: 0.05vw #2F5EBC solid;
+  border-right: #2F5EBC 0.46vw solid;
+  cursor: pointer;
+}
+
+.slide {
+  background: white;
+  border: blue 0.00520833vw solid;
+}
+
+@-webkit-keyframes box {
+  0% {
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+  }
+  100% {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+
+@keyframes box {
+  0% {
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+  }
+  100% {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+
+.flip-card {
+  position: absolute;
+  top: 37.5%;
+  right: 11.7%;
+  background-color: transparent;
+  width: 10.41vw;
+  height: 48.025613660618994vh;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: -webkit-transform 0.6s;
+  transition: transform 0.6s;
+  transition: transform 0.6s, -webkit-transform 0.6s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-box-shadow: 0 0.2vw 0.416vw 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0.2vw 0.416vw 0 rgba(0, 0, 0, 0.2);
+  -webkit-animation: 8s box linear infinite;
+          animation: 8s box linear infinite;
+  border-radius: 1vw;
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 1vw;
+}
+
+.flip-card-front img, .flip-card-back img {
+  width: 100%;
+  height: 100%;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+  border-radius: 1vw;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  border-radius: 1vw;
+}
+
+.flip-card-back img {
+  width: 100%;
+  height: 100%;
+}
+
+.social-btn {
+  cursor: pointer;
+  position: fixed;
+  background: #EF011E;
+  color: white;
+  outline: none;
+  border: none;
+  min-width: 7vw;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  padding-left: 3px;
+  padding-right: 10px;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px 0px 0px 5px;
+  font-size: 0.8vw;
+  margin-bottom: 10vw;
+}
+
+.social-btn i {
+  margin: 10px;
+}
+
+.social-btn:hover {
+  background: white;
+  color: black;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.s-btn1 {
+  top: 35%;
+}
+
+.s-btn2 {
+  top: 45%;
+}
+
+.s-btn3 {
+  top: 55%;
+}
+
+.s-btn4 {
+  top: 65%;
+}
+/*# sourceMappingURL=style.css.map */

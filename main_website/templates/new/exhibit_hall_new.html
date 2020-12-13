@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.min.js"></script>
+    <link href="{% static 'new/exhibit_hall/style.css' %}" rel="stylesheet">
+    <link href="{% static 'new/page6/navbar.css' %}" rel="stylesheet">
+    <script src="{% static 'main_website/dataanalytics_websocket.js' %}"></script>
+    <audio id="myAudio">
+      <source src="https://webinarzappastatic.s3.ap-south-1.amazonaws.com/media/WhatsApp+Audio+2020-09-06+at+3.02.16+PM.mpeg" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'main_website/chat_box.css' %}" />
+    <title></title>
+    <style>
+       @media (orientation:portrait){
+	        #wrapper { display:none; }
+	        #warning-message { display:block; }
+	    }
+	    @media (orientation: landscape) {
+	        #warning-message { display:none; }
+	    }
+    </style>
+</head>
+<body>
+
+    <iframe id="vdo" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                class="vdo wow animate__fadeIn" data-wow-delay="1.5s"
+                frameborder="0" src="{{ auditorium_youtube_name }}"></iframe>
+<div id='wrapper'>
+    <div class="page" style="background-image: url({{ background_image.url }});">
+
+
+
+
+        {% include 'new/everypage_chat.html' %}
+        {% include 'nav.html' %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+        <script>
+        new WOW().init();
+        </script>
+    </div>
+</div>
+
+
+<script>
+    window.addEventListener('click', function(e){
+      if (document.getElementById('chatbox').contains(e.target)){
+        // Clicked in box
+      }
+      else if(document.getElementById('attendee_popup').contains(e.target)){
+        document.getElementById('chatbox').style.display = "block";
+      }
+      else{
+        document.getElementById('chatbox').style.display = "none";
+      }
+    });
+
+    $('#attendee_popup').click(function(){
+        document.getElementById('chatbox').style.display = "block";
+    })
+</script>
+
+
+<div id='warning-message' style='background-color: black;'>
+    <img src="https://www.robscanlon.com/pleaserotate/demo.gif" style='width:100%;height: 100%;'></img>
+    <h1 style="font-size: 40px; color:white; position: absolute; top:0%; text-align: center;">Please rotate Mobile </h1>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>PhotoBooth</title>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href="{% static 'new/photobooth/main.css' %}">
+  <script src="{% static 'new/photobooth/video.js' %}"></script>
+</head>
+<script src="{% static 'new/photobooth/html2canvas.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script>
+  function getScreen2() {
+    console.log("this is get screen2")
+  debugger;
+    html2canvas(document.querySelector("#capture")).then(function (canvas) {
+      var fileupload = canvas.toDataURL("image/png")
+      $("#blank").attr('href', fileupload);
+      $("#blank").attr('download', 'MyPhoto.png');
+      $("#blank")[0].click();
+        var fd = new FormData();
+        // var files = $('#file')[0].files[0];
+        fd.append('file',fileupload);
+    });
+  }
+  function getScreen() {
+    html2canvas(document.querySelector("#capture")).then(function (canvas) {
+      var fileupload = canvas.toDataURL("image/png")
+      $("#blank").attr('href', fileupload);
+      $("#blank").attr('download', 'MyPhoto.png');
+      $("#blank")[0].click();
+        var fd = new FormData();
+        // var files = $('#file')[0].files[0];
+        fd.append('file',fileupload);
+
+console.log(fd)
+        $.ajax({
+            // url: 'upload.php',
+            type: 'post',
+            data: fd,
+            conte

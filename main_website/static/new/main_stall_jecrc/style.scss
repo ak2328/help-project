@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+.page
+{
+    margin: 0;
+    padding: 0;
+    background-image: url("bg.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100% 100%;
+    width: 100vw;
+    height: 100vh;
+}
+.btn
+{
+    
+    outline: none;
+    font-size: 1vw;
+    outline: none;
+    position: fixed;
+    cursor: pointer;
+    width: 12vw;
+    height: 9.8vh;
+    right: 8%;
+    border-right: blue solid 0.85vh;
+    border-left: blue solid 0.85vh;
+    border-radius: 2.1vh;
+    &:hover
+    {
+        background: blue;
+        color: rgb(255, 255, 255);
+        border-right: rgb(255, 255, 255) solid 0.85vh;
+    border-left: rgb(255, 255, 255) solid 0.85vh;
+        transition:  0.2s;
+        outline: none;
+
+    }
+    
+}
+.btn1
+{
+  top: 35.1%;
+ 
+}
+.btn2
+{
+    top: 49.4%;
+    
+}
+.btn3
+{
+    top: 63.6%;
+    
+}
+.main
+{
+    outline: none;
+    font-size: 1vw;
+    outline: none;
+    position: fixed;
+    cursor: pointer;
+    width: 20vw;
+    height: 9.8vh;
+    background: white;
+    border-right: blue solid 0.85vh;
+    border-left: blue solid 0.85vh;
+    border-radius: 2.1vh;
+    top: 44%;
+    left: 39%;
+    &:hover
+    {
+        background: blue;
+        color: rgb(255, 255, 255);
+        border-right: rgb(0, 0, 0) solid 0.85vh;
+    border-left: rgb(0, 0, 0) solid 0.85vh;
+        transition:  0.2s;
+        outline: none;
+
+    }
+
+}

@@ -1,0 +1,171 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JECRC</title>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href="{% static 'new/photobooth/main.css' %}">
+    <style>
+        video{
+            width: 75%;
+            height: 71%;
+            left: 27vh;
+        }
+        capture{
+            height: 100vh !important;
+        }
+        canvas{
+            width: 108%;
+            left: 27vh;
+        }
+        #capture{
+            height: 73vh;
+            width: 117vh;
+            display: flex;
+        }
+    </style>
+</head>
+<script src="{% static 'new/photobooth/html2canvas.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script>
+  function getScreen() {
+    html2canvas(document.querySelector("#capture")).then(function (canvas) {
+      var fileupload = canvas.toDataURL("image/png")
+      // console.log(fileupload)
+      $.ajax({
+      type: "POST",
+      url: '/arena/photobooth/',
+      data:{
+        image:fileupload,
+      },
+      success:function(data){
+                    console.log(data)
+                    var imgdl = data['img']
+                    $("#blank").attr('href', imgdl);
+                    $("#blank").attr('download', 'ETDatacon.png');
+                    $("#blank")[0].click();
+                      var fd = new FormData();
+                      fd.append('file',fileupload);
+                }
+
+    });
+      console.log('hello workd')
+
+    });
+    // debugger;
+  }
+</script>
+
+<body>
+
+<div id="wrapper">
+      <div id="band">
+
+      </div>
+      <div id="capture">
+        <img src="https://jecrcnew.s3.ap-south-1.amazonaws.com/frame.png" class = "one"/>
+        <video id="video" width="860" height="424.464" autoplay></video>
+        <canvas id="canvas" width="860" height="600"></canvas>
+       </div>
+          <input type = "image" class="snap" src="{% static 'new/photobooth/snap.png' %}" id='snap' onclick = "takePic()"/>
+          <input type = "image" class="download" src="{% static 'new/photobooth/download.png' %}" id="download" onclick="getScreen()"/>
+          <input type = "image" class="reset" src="{% static 'new/photobooth/reset.png' %}" id="reset" />
+
+          <a href="" id="blank"></a>
+  </div>
+<div id="warning-message">
+    This website is only viewable in landscape mode
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", function() {
+			// Grab elements, create settings, etc.
+            var canvas = document.getElementById('canvas');
+            console.log("nothing happend")
+            var context = canvas.getContext('2d');
+            var video = document.getElementById('video');
+            var mediaConfig =  { video: true };
+            var errBack = function(e) {
+            	console.log('An error has occurred!', e)
+            };
+
+			// Put video listeners into place
+            if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia(mediaConfig).then(function(stream) {
+					//video.src = window.URL.createObjectURL(stream);
+					video.srcObject = stream;
+                    video.play();
+                });
+            }
+
+            /* Legacy code below! */
+            else if(navigator.getUserMedia) { // Standard
+				navigator.getUserMedia(mediaConfig, function(stream) {
+					video.src = stream;
+					video.play();
+				}, errBack);
+			} else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
+				navigator.webkitGetUserMedia(mediaConfig, function(stream){
+					video.src = window.webkitURL.createObjectURL(stream);
+					video.play();
+				}, errBack);
+			} else if(navigator.mozGetUserMedia) { // Mozilla-prefixed
+				navigator.mozGetUserMedia(mediaConfig, function(stream){
+					video.src = window.URL.createObjectURL(stream);
+					video.play();
+				}, errBack);
+			}
+
+			document.getElementById("snap").style.display = "block";
+			document.getElementById("download").style.display = "none";
+			document.getElementById("reset").style.display = "none";
+			// Trigger photo take
+
+			// document.getElementById('snap').addEventListener('click', function() {
+			// 	context.drawImage(video, 0, 0, 640, 480);
+			// 	document.getElementById("snap").style.display = "none";
+			// 	document.getElementById("download").style.display = "block";
+			// 	document.getElementById("reset").style.display = "block";
+			// });
+
+
+
+			// download screenshot
+			document.getElementById('download').addEventListener('click', function() {
+
+
+				///code missing here!
+
+
+				// window.location.reload();
+			});
+
+			//reset
+			document.getElementById('reset').addEventListener('click', function() {
+				window.location.reload();
+			});
+
+		}, false);
+
+		function takePic(){
+      var canvas = document.getElementById('canvas');
+      console.log(canvas.width)
+      console.log(canvas.height)
+      var context = canvas.getContext('2d');
+			context.drawImage(video,0,-73,609,565);
+			console.log('take pic called')
+			document.getElementById("snap").style.display = "none";
+			document.getElementById("download").style.display = "block";
+			document.getElementById("reset").style.display = "block";
+		}
+</script>
+
+    
+</body>
+
+
+</html>

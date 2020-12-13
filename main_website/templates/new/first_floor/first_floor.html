@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>third link</title>
+	<style type="text/css">
+		
+		body, html {
+		  height: 100%;
+		  margin: 0;
+		}
+
+		.bg {
+		  /* The image used */
+		  background-image: url('https://finalawsstatic.s3.amazonaws.com/media/LOBBY_CHANGE__S_2_1_xzcUTXO.jpg');
+
+		  /* Full height */
+		  height: 100%; 
+
+		  /* Center and scale the image nicely */
+		  background-position: center;
+		  background-repeat: no-repeat;
+		  background-size: cover;
+		}
+		
+		/* Container holding the image and the text */
+		.container {
+		  position: relative;
+		  text-align: center;
+		  color: white;
+		}
+		.top-left {
+		  position: absolute;
+		  top: 340px;
+		  left: 356px;
+		  text-shadow: 20px;
+		  border: 20px;
+		  background-color: yellow;
+		}
+		.top-right {
+		  position: absolute;
+		  top: 390px;
+		  left: 666px;
+		  text-shadow: 20px;
+		  border: 20px;
+		  background-color: yellow;
+		}
+		.bottom{
+			position: absolute;
+			top: 340px;
+			left: 999px;
+			text-shadow: 20px;
+		    border: 20px;
+	    	  background-color: yellow;
+		}
+	</style>
+</head>
+
+<body >
+	<div class="container">
+	<a href="{% url 'main_website:first_floor_link1' %}" class="top-left">ROOM 1</a>
+	<a href="{% url 'main_website:first_floor_link2' %}" class="top-right">ROOM 2</a>
+	<a href="{% url 'main_website:first_floor_link3' %}" class="bottom">ROOM 3</a>
+	</div>
+	<div class="bg"></div>
+
+</body>
+</html>
